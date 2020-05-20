@@ -152,8 +152,31 @@ public class JACPContextImpl implements JACPContext {
         return returnVal;
     }
 
-    @Override
     public final void setHandleTarget(final String componentTargetId) {
         this.handleComponentTarget = componentTargetId;
     }
+
+	@Override
+	public String getParentId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setReturnTarget(String componentTargetId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setExecutionTarget(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setTargetLayout(String targetLayout) {
+		// TODO Auto-generated method stub
+		
+	}
 }

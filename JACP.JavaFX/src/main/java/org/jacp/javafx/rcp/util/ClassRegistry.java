@@ -1,12 +1,12 @@
 package org.jacp.javafx.rcp.util;
 
-import org.jacp.api.annotations.Component;
-import org.jacp.api.annotations.Perspective;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
+
+import org.jacp.api.annotations.component.Component;
+import org.jacp.api.annotations.perspective.Perspective;
 
 /**
  * Created with IntelliJ IDEA.

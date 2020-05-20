@@ -22,21 +22,23 @@
  ************************************************************************/
 package org.jacp.javafx.rcp.worker;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.scene.CacheHint;
-import javafx.scene.Node;
+import java.util.Map;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Logger;
+
+import javax.annotation.PreDestroy;
+
 import org.jacp.api.action.IAction;
-import org.jacp.api.annotations.PreDestroy;
 import org.jacp.api.component.ISubComponent;
 import org.jacp.javafx.rcp.component.AFXComponent;
 import org.jacp.javafx.rcp.componentLayout.FXComponentLayout;
 import org.jacp.javafx.rcp.util.FXUtil;
 
-import java.util.Map;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutionException;
-import java.util.logging.Logger;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.scene.CacheHint;
+import javafx.scene.Node;
 
 /**
  * Background Worker to execute components handle method in separate thread and

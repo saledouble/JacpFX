@@ -22,9 +22,21 @@
  ************************************************************************/
 package org.jacp.javafx.rcp.util;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import org.jacp.api.annotations.PreDestroy;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.annotation.PreDestroy;
+
 import org.jacp.api.component.IPerspective;
 import org.jacp.api.component.IStatelessCallabackComponent;
 import org.jacp.api.component.ISubComponent;
@@ -33,10 +45,8 @@ import org.jacp.javafx.rcp.component.CallbackComponent;
 import org.jacp.javafx.rcp.worker.AFXComponentWorker;
 import org.jacp.javafx.rcp.worker.TearDownWorker;
 
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 
 /**
  * Handles TearDown annotations on all components when application is closed.

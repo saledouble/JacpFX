@@ -22,16 +22,21 @@
  ************************************************************************/
 package org.jacp.javafx.rcp.worker;
 
-import javafx.application.Platform;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.scene.Node;
+import java.util.Map;
+import java.util.ResourceBundle;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.jacp.api.action.IAction;
 import org.jacp.api.action.IActionListener;
-import org.jacp.api.annotations.PostConstruct;
-import org.jacp.api.annotations.PreDestroy;
+import org.jacp.api.annotations.lifecycle.PostConstruct;
+import org.jacp.api.annotations.lifecycle.PreDestroy;
 import org.jacp.api.component.IComponentHandle;
 import org.jacp.api.component.ISubComponent;
 import org.jacp.api.component.IUIComponent;
@@ -44,16 +49,12 @@ import org.jacp.javafx.rcp.context.JACPContextImpl;
 import org.jacp.javafx.rcp.util.FXUtil;
 import org.jacp.javafx.rcp.util.ShutdownThreadsHandler;
 
-import java.util.Map;
-import java.util.ResourceBundle;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.application.Platform;
+import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.scene.Node;
 
 /**
  * handles component methods in own thread;

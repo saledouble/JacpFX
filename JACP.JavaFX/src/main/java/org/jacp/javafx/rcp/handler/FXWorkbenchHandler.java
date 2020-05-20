@@ -22,18 +22,19 @@
  ************************************************************************/
 package org.jacp.javafx.rcp.handler;
 
-import javafx.collections.ObservableList;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.CacheHint;
-import javafx.scene.Node;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.annotation.PostConstruct;
+
 import org.jacp.api.action.IAction;
-import org.jacp.api.annotations.OnHide;
-import org.jacp.api.annotations.OnShow;
-import org.jacp.api.annotations.PostConstruct;
+import org.jacp.api.annotations.lifecycle.OnHide;
+import org.jacp.api.annotations.lifecycle.OnShow;
 import org.jacp.api.component.IPerspective;
 import org.jacp.api.component.IPerspectiveView;
 import org.jacp.api.component.ISubComponent;
@@ -53,13 +54,14 @@ import org.jacp.javafx.rcp.perspective.AFXPerspective;
 import org.jacp.javafx.rcp.util.FXUtil;
 import org.jacp.javafx.rcp.util.PerspectiveRegistry;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.List;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.collections.ObservableList;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.CacheHint;
+import javafx.scene.Node;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 
 /**
  * Handles initialization and re assignment of perspectives in workbench.

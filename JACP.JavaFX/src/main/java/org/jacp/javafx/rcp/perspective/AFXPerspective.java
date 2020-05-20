@@ -24,33 +24,6 @@
 package org.jacp.javafx.rcp.perspective;
 
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import org.jacp.api.action.IAction;
-import org.jacp.api.action.IDelegateDTO;
-import org.jacp.api.annotations.Component;
-import org.jacp.api.annotations.Declarative;
-import org.jacp.api.annotations.Perspective;
-import org.jacp.api.annotations.Stateless;
-import org.jacp.api.component.*;
-import org.jacp.api.componentLayout.IPerspectiveLayout;
-import org.jacp.api.context.Context;
-import org.jacp.api.coordinator.IComponentCoordinator;
-import org.jacp.api.dialog.Scope;
-import org.jacp.api.handler.IComponentHandler;
-import org.jacp.api.launcher.Launcher;
-import org.jacp.api.util.UIType;
-import org.jacp.javafx.rcp.action.FXAction;
-import org.jacp.javafx.rcp.component.*;
-import org.jacp.javafx.rcp.componentLayout.PerspectiveLayout;
-import org.jacp.javafx.rcp.context.JACPContextImpl;
-import org.jacp.javafx.rcp.coordinator.FXComponentCoordinator;
-import org.jacp.javafx.rcp.util.ClassRegistry;
-import org.jacp.javafx.rcp.util.ComponentRegistry;
-import org.jacp.javafx.rcp.util.FXUtil;
-
 import java.net.URL;
 import java.security.InvalidParameterException;
 import java.util.Arrays;
@@ -60,6 +33,44 @@ import java.util.concurrent.BlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+
+import org.jacp.api.action.IAction;
+import org.jacp.api.action.IDelegateDTO;
+import org.jacp.api.annotations.component.Component;
+import org.jacp.api.annotations.component.Declarative;
+import org.jacp.api.annotations.component.Stateless;
+import org.jacp.api.annotations.perspective.Perspective;
+import org.jacp.api.component.IComponentHandle;
+import org.jacp.api.component.IComponentView;
+import org.jacp.api.component.IPerspectiveView;
+import org.jacp.api.component.ISubComponent;
+import org.jacp.api.component.Injectable;
+import org.jacp.api.componentLayout.IPerspectiveLayout;
+import org.jacp.api.context.Context;
+import org.jacp.api.coordinator.IComponentCoordinator;
+import org.jacp.api.dialog.Scope;
+import org.jacp.api.handler.IComponentHandler;
+import org.jacp.api.launcher.Launcher;
+import org.jacp.api.util.UIType;
+import org.jacp.javafx.rcp.action.FXAction;
+import org.jacp.javafx.rcp.component.AComponent;
+import org.jacp.javafx.rcp.component.AFXComponent;
+import org.jacp.javafx.rcp.component.CallbackComponent;
+import org.jacp.javafx.rcp.component.EmbeddedFXComponent;
+import org.jacp.javafx.rcp.component.EmbeddedStatefulComponent;
+import org.jacp.javafx.rcp.component.EmbeddedStatelessCallbackComponent;
+import org.jacp.javafx.rcp.component.FXComponent;
+import org.jacp.javafx.rcp.componentLayout.PerspectiveLayout;
+import org.jacp.javafx.rcp.context.JACPContextImpl;
+import org.jacp.javafx.rcp.coordinator.FXComponentCoordinator;
+import org.jacp.javafx.rcp.util.ClassRegistry;
+import org.jacp.javafx.rcp.util.ComponentRegistry;
+import org.jacp.javafx.rcp.util.FXUtil;
+
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
 
 /**
  * represents a basic javafx2 perspective that handles subcomponents,

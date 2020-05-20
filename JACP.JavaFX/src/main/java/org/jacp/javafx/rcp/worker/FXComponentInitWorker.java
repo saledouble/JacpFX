@@ -22,19 +22,6 @@
  ************************************************************************/
 package org.jacp.javafx.rcp.worker;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import org.jacp.api.action.IAction;
-import org.jacp.api.annotations.PostConstruct;
-import org.jacp.api.component.IComponentHandle;
-import org.jacp.api.util.UIType;
-import org.jacp.javafx.rcp.component.AComponent;
-import org.jacp.javafx.rcp.component.AFXComponent;
-import org.jacp.javafx.rcp.componentLayout.FXComponentLayout;
-import org.jacp.javafx.rcp.util.FXUtil;
-
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
@@ -42,6 +29,20 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
+
+import org.jacp.api.action.IAction;
+import org.jacp.api.annotations.lifecycle.PostConstruct;
+import org.jacp.api.component.IComponentHandle;
+import org.jacp.api.util.UIType;
+import org.jacp.javafx.rcp.component.AComponent;
+import org.jacp.javafx.rcp.component.AFXComponent;
+import org.jacp.javafx.rcp.componentLayout.FXComponentLayout;
+import org.jacp.javafx.rcp.util.FXUtil;
+
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 
 /**
  * Background Worker to execute components; handle method to init component.

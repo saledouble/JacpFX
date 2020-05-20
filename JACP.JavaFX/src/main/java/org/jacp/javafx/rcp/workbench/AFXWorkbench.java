@@ -22,21 +22,19 @@
  ************************************************************************/
 package org.jacp.javafx.rcp.workbench;
 
-import javafx.application.Platform;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.geometry.Orientation;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.ToolBar;
-import javafx.scene.effect.GaussianBlur;
-import javafx.scene.layout.*;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import java.security.InvalidParameterException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
 import org.jacp.api.action.IAction;
 import org.jacp.api.action.IActionListener;
-import org.jacp.api.annotations.Perspective;
-import org.jacp.api.annotations.Workbench;
+import org.jacp.api.annotations.perspective.Perspective;
+import org.jacp.api.annotations.workbench.Workbench;
 import org.jacp.api.component.IPerspective;
 import org.jacp.api.component.IRootComponent;
 import org.jacp.api.component.Injectable;
@@ -65,16 +63,29 @@ import org.jacp.javafx.rcp.coordinator.FXPerspectiveCoordinator;
 import org.jacp.javafx.rcp.handler.FXWorkbenchHandler;
 import org.jacp.javafx.rcp.perspective.AFXPerspective;
 import org.jacp.javafx.rcp.perspective.EmbeddedFXPerspective;
-import org.jacp.javafx.rcp.util.*;
+import org.jacp.javafx.rcp.util.CSSUtil;
+import org.jacp.javafx.rcp.util.ClassRegistry;
+import org.jacp.javafx.rcp.util.FXUtil;
+import org.jacp.javafx.rcp.util.LayoutUtil;
+import org.jacp.javafx.rcp.util.PerspectiveRegistry;
+import org.jacp.javafx.rcp.util.ShutdownThreadsHandler;
+import org.jacp.javafx.rcp.util.TearDownHandler;
 
-import java.security.InvalidParameterException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
+import javafx.application.Platform;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.geometry.Orientation;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.ToolBar;
+import javafx.scene.effect.GaussianBlur;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * represents the basic JavaFX2 workbench instance; handles perspectives and

@@ -80,4 +80,6 @@ public @interface Component {
      */
     String localeID() default "";
 
+	String defaultExecutionTarget();
+
 }

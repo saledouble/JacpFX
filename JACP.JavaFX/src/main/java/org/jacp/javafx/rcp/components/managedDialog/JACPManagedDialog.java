@@ -22,11 +22,16 @@
  ************************************************************************/
 package org.jacp.javafx.rcp.components.managedDialog;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.scene.Node;
-import org.jacp.api.annotations.Dialog;
+import java.lang.reflect.Field;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.ResourceBundle;
+import java.util.concurrent.ConcurrentHashMap;
+
 import org.jacp.api.annotations.Resource;
+import org.jacp.api.annotations.dialog.Dialog;
 import org.jacp.api.component.IComponentHandle;
 import org.jacp.api.component.ISubComponent;
 import org.jacp.api.context.Context;
@@ -37,13 +42,9 @@ import org.jacp.javafx.rcp.component.ASubComponent;
 import org.jacp.javafx.rcp.util.ComponentRegistry;
 import org.jacp.javafx.rcp.util.FXUtil;
 
-import java.lang.reflect.Field;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
-import java.util.concurrent.ConcurrentHashMap;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.scene.Node;
 
 /**
  * The JACPManagedDialog handles creation of managed dialog components. A

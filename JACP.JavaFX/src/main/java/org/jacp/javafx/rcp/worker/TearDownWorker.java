@@ -22,13 +22,15 @@
  ************************************************************************/
 package org.jacp.javafx.rcp.worker;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import org.jacp.api.annotations.PreDestroy;
+import java.util.concurrent.Callable;
+
+import javax.annotation.PreDestroy;
+
 import org.jacp.api.component.ISubComponent;
 import org.jacp.javafx.rcp.util.FXUtil;
 
-import java.util.concurrent.Callable;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 
 /**
  * This worker handles TearDown annotated methods for state- and stateless components. This type of components handle their live cycle always aoutside application thread.
